@@ -14,7 +14,12 @@
 		}
 
 		private function criarArquivo(){
-			$nome_arquivo = $this->nome.".txt";
+
+			if(!is_dir("comentarios/")){
+				mkdir("comentarios/");
+			}
+
+			$nome_arquivo = "comentarios/".$this->nome.".txt";
 			$arquivo = fopen($nome_arquivo, 'a');
 			return $arquivo;
 		}
